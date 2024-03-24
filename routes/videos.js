@@ -2,7 +2,6 @@ const express = require("express");
 const axios = require("axios");
 const { v4: uuidv4 } = require("uuid");
 const fs = require("fs");
-const path = require("path");
 
 const app = express();
 const router = express.Router();
