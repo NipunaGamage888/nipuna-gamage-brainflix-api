@@ -4,6 +4,7 @@ const cors= require('cors');
 const routes = require('./routes/videos');
 
 app.use(cors());
+app.use(express.json())
 const PORT=8080
 
 app.use('/api', routes);
