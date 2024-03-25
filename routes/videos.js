@@ -10,7 +10,6 @@ app.use(express.static("./public"));
 function readVideos() {
   const videoData = fs.readFileSync("./data/videos.json");
   const parsedData = JSON.parse(videoData);
-
   return parsedData;
 }
 
@@ -37,7 +36,6 @@ router.get("/videos/:id", async (req, res) => {
 
 router.post("/videos", async (req, res) => {
   try {
-    const videoImage = `/image/Upload-video-preview.jpg`;
     const { title, description } = req.body;
     const newVideo = {
       id: uuidv4(),
@@ -87,5 +85,23 @@ router.post("/videos/:id/comments", async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
+
+router.put("/videos/:id/likes", (req, res) => {
+    try{
+        const { id } = req.params;
+        const response = readVideos();
+        const video = response.find(video => video.id == id);
+
+        if (!video) {
+            return res.status(404).json({ error: "Video not found" });
+        }
+        video.likes ++;
+        res.json(video);
+    }catch(err){
+        console.error(err)
+    }
+   
+});
+
 
 module.exports = router;
