@@ -7,6 +7,7 @@ app.use(cors());
 app.use(express.json());
 const PORT = 8080;
 app.use("/image", express.static("./public/images"));
+app.use("/video", express.static("./public/videos"));
 
 app.use("/api", routes);
 

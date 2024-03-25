@@ -45,6 +45,7 @@ router.post("/videos", async (req, res) => {
       channel: "RyanHernandez",
       image: 'http://localhost:8080/image/Upload-video-preview.jpg',
       description,
+      video:'http://localhost:8080/video/brainStationsamplevideomp4',
       views: 0,
       likes: 0,
       duration: 0,
