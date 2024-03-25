@@ -6,7 +6,7 @@ const routes = require("./routes/videos");
 app.use(cors());
 app.use(express.json());
 const PORT = 8080;
-app.use("/image", express.static("./public"));
+app.use("/image", express.static("./public/images"));
 
 app.use("/api", routes);
 
